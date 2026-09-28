@@ -143,7 +143,6 @@ data.forEach(r => {
 
 });
 
-});
 
 document.getElementById("stat-respuestas").textContent = totalRespuestas;
 document.getElementById("stat-confirmados").textContent = confirmados;
