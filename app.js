@@ -126,15 +126,21 @@ data.forEach(r => {
 
   const estado = r["Vas a asistir?"];
   const invitados = (r["Nombre"] || "").toLowerCase();
+  const cantidad = parseInt(r["Cantidad de personas"], 10) || 0;
 
-  if (estado.includes("Confirmo")) confirmados++;
-  else noConfirmados++;
+  if (estado.includes("Confirmo")) {
+    confirmados += cantidad;
+  } else {
+    noConfirmados += cantidad;
+  }
 
   if(invitados.includes("vegetariana")) vegetariana++;
-if(invitados.includes("vegana")) vegana++;
-if(invitados.includes("sin tacc")) sintacc++;
-if(invitados.includes("sibo")) sibo++;
-if(invitados.includes("otro")) otros++;
+  if(invitados.includes("vegana")) vegana++;
+  if(invitados.includes("sin tacc")) sintacc++;
+  if(invitados.includes("sibo")) sibo++;
+  if(invitados.includes("otro")) otros++;
+
+});
 
 });
 
