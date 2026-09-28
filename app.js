@@ -112,7 +112,7 @@ Papa.parse(SHEET_URL, {
 
 const data = results.data.filter(r => r["Vas a asistir?"]);
 
-let totalRespuestas = data.length;
+let totalRespuestas = 0;
 let confirmados = 0;
 let noConfirmados = 0;
 
@@ -127,6 +127,7 @@ data.forEach(r => {
   const estado = r["Vas a asistir?"];
   const invitados = (r["Nombre"] || "").toLowerCase();
   const cantidad = parseInt(r["Cantidad de personas"], 10) || 0;
+  totalRespuestas += cantidad;
 
   if (estado.includes("Confirmo")) {
     confirmados += cantidad;
